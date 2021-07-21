@@ -1,10 +1,11 @@
 .body {
     height: 100vh;
-    flex:0.8;
     color: white;
     padding: 30px;
-    background: linear-gradient(rgb(91,87,115), rgba(0, 0, 0, 1));
+    margin-left: 250px;
+    background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
     overflow-y: overlay;
+    width: 100%;
 }
 
 .body__info {
@@ -22,7 +23,7 @@
 .body__infoText {
     flex: 1;
 }
-.body__infoText > h2{
+.body__infoText > h2 {
     font-size: 48px;
     margin-bottom: 10px;
 }
@@ -32,6 +33,7 @@
 
 .body__songs {
     margin: 20px -30px;
+    padding-bottom: 50px;
 }
 
 .body__icons {

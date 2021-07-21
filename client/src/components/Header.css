@@ -11,13 +11,14 @@
     border-radius: 30px;
     display: flex;
     align-items: center;
-    padding: 10px;  
-    flex:0.5
+    padding: 10px;
+    flex: 0.5;
 }
 
 .header__left > input {
     border: none;
     width: 100%;
+    outline: none;
 }
 
 .header__right {
@@ -25,6 +26,36 @@
     align-items: center;
 }
 
-.header__right > h4 {
+.header__right h4 {
     margin-left: 10px;
+}
+
+.header__rightButtons {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    background: black;
+    color: white;
+    padding: 2px;
+}
+
+.header__start {
+    width: 75px;
+    min-width: 62px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.route_button {
+    height: 75%;
+    border-radius: 50%;
+    width: 34px;
+    outline: none;
+    border: none;
+    background: black;
+    color: white;
+    font-size: small;
+    font-weight: bold;
 }

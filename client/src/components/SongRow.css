@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     color: white;
+    width: 87%;
 }
 
 .songRow:hover {
@@ -28,4 +29,3 @@
     height: 40px;
     width: 40px;
 }
-

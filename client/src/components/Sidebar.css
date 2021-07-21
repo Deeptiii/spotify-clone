@@ -1,10 +1,14 @@
 .sidebar {
     height: 100vh;
-    flex: 0.2;
+    position: fixed;
     background-color: #040404;
     color: white;
     min-width: 230px;
     padding: 0px 10px 0px 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
 }
 
 .sidebar > hr {
