@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Login from "./components/Login";
 import { getTokenFromUrl } from "./spotify";
@@ -11,9 +11,6 @@ const spotify = new SpotifyWebApi({
 });
 
 function App() {
-    //Run code based on given condition
-
-    // const [token, setToken] = useState(null);
     const [{ token }, dispatch] = useDataLayerValue();
 
     const clearAccessToken = (expiresIn) => {
@@ -95,11 +92,7 @@ function App() {
             dispatch({ type: "RESET_STATE" });
             window.location = "/";
         }
-
-        dispatch({
-            type: "SET_SPOTIFY",
-            spotify: spotify
-        });
+        // eslint-disable-next-line
     }, []);
 
     return (

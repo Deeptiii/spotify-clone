@@ -1,24 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { useDataLayerValue } from "../../DataLayer";
 import SongRow from "../SongRow";
 
 const Home = ({ spotify, chooseTrack }) => {
-    // const [{ spotify }, dispatch] = useDataLayerValue();
     const [recommentation, setRecommentation] = useState([]);
+    const [artists, setArtists] = useState([]);
+
     useEffect(() => {
-        spotify
-            .getRecommendations({
-                min_energy: 0.4,
-                seed_artists: [
-                    "1mYsTxnqsietFxj1OgoGbG",
-                    "5GnnSrwNCGyfAU4zuIytiS"
-                ],
-                min_popularity: 50
-            })
-            .then((res) => {
-                setRecommentation(res.tracks);
+        if (!recommentation.length)
+            spotify.getMyTopArtists().then((res) => {
+                const artst = res.items.map((item) => item.id);
+                setArtists(artst);
             });
-    }, []);
+    }, [recommentation]);
+
+    useEffect(() => {
+        if (!recommentation.length)
+            spotify
+                .getRecommendations({
+                    min_energy: 0.4,
+                    seed_artists: artists,
+                    min_popularity: 50
+                })
+                .then((res) => {
+                    setRecommentation(res.tracks);
+                });
+        // eslint-disable-next-line
+    }, [artists]);
     return (
         <div>
             <h2>Recommendations</h2>
