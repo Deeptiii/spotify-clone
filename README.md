@@ -1,2 +1,2 @@
 # spotify-clone
-Play your spotify music with this custom sptify
+Play your spotify music with this custom spotify
