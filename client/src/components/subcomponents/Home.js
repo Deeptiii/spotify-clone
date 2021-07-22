@@ -14,7 +14,7 @@ const Home = ({ spotify, chooseTrack }) => {
     }, [recommentation]);
 
     useEffect(() => {
-        if (!recommentation.length)
+        if (!recommentation.length && artists.length)
             spotify
                 .getRecommendations({
                     min_energy: 0.4,

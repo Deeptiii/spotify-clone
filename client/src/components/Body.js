@@ -5,6 +5,7 @@ import { useDataLayerValue } from "../DataLayer";
 import { Favorite, MoreHoriz, PlayCircleFilled } from "@material-ui/icons";
 import SongRow from "./SongRow";
 import Home from "./subcomponents/Home";
+import { useLocation } from "react-router-dom";
 
 import { Route, Switch } from "react-router-dom";
 
@@ -12,11 +13,14 @@ function Body({ spotify, chooseTrack }) {
     const [{ discover_weekly }] = useDataLayerValue();
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState([]);
+    const path = useLocation().pathname;
 
     let cancel = false;
     useEffect(() => {
         if (!search) {
-            setSearchResult([]);
+            if (path !== "/search") {
+                setSearchResult([]);
+            }
             return;
         }
 
@@ -26,7 +30,7 @@ function Body({ spotify, chooseTrack }) {
         });
 
         return () => (cancel = true);
-    }, [search]);
+    }, [search, path]);
 
     const onChangeSearch = (e) => {
         setSearch(e.target.value);

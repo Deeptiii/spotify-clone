@@ -32,9 +32,9 @@ function Sidebar({ spotify }) {
             <Link to='/search'>
                 <SidebarOption title='Search' Icon={SearchIcon} />
             </Link>
-            <Link to='/library'>
+            {/* <Link to='/library'>
                 <SidebarOption title='My Library' Icon={LibraryMusicIcon} />
-            </Link>
+            </Link> */}
 
             <br />
             <strong className='sidebar__title'>PLAYLISTS</strong>

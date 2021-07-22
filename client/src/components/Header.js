@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import { Avatar, Menu, MenuItem } from "@material-ui/core";
@@ -14,10 +14,6 @@ function Header({ changeSearch, search }) {
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
-
-    useEffect(() => {
-        // setPath(window.location.pathname);
-    });
 
     const handleClose = () => {
         setAnchorEl(null);
