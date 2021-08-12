@@ -5,7 +5,7 @@ import { useDataLayerValue } from "../DataLayer";
 import { Favorite, MoreHoriz, PlayCircleFilled } from "@material-ui/icons";
 import SongRow from "./SongRow";
 import Home from "./subcomponents/Home";
-import { useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 import { Route, Switch } from "react-router-dom";
 
@@ -14,6 +14,7 @@ function Body({ spotify, chooseTrack }) {
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState([]);
     const path = useLocation().pathname;
+    const { id } = useParams();
 
     let cancel = false;
     useEffect(() => {

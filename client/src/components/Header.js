@@ -3,10 +3,11 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import { Avatar, Menu, MenuItem } from "@material-ui/core";
 import { useDataLayerValue } from "../DataLayer";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 function Header({ changeSearch, search }) {
     const [{ user }, dispatch] = useDataLayerValue();
+    const history = useHistory();
     const path = useLocation().pathname;
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -29,8 +30,19 @@ function Header({ changeSearch, search }) {
     return (
         <div className='header'>
             <div className='header__start'>
-                <button className='route_button'> {"<"} </button>
-                <button className='route_button'> {">"} </button>
+                <button
+                    className='route_button'
+                    title='Go Back'
+                    onClick={() => history.goBack()}>
+                    {"<"}
+                </button>
+                <button
+                    className='route_button'
+                    title='Go Forward'
+                    onClick={() => history.goForward()}>
+                    {" "}
+                    {">"}{" "}
+                </button>
             </div>
             {path === "/search" && (
                 <div className='header__left'>
